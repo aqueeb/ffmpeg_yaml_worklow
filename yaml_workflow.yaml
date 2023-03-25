@@ -1,0 +1,68 @@
+
+- IMG_1931.MOV
+    - Quickly documenting my setup.
+        - Tons of preload on the rear springs.
+        - Two 7000 mAh (14000 mAh) 3S HRB LiPo batteries connected in series
+- IMG_1932.MOV
+    - Super cold day today. Zero degrees Celsius. -5 degrees Celsius with wind chill
+- IMG_1933.MOV
+    - 00:00 - 00:14
+        - My makeshift gloves that show the trigger finger. GoPro on the car (I'll upload that footage later)
+     - 00:24 - 00:31
+        - accelerating in rain
+- IMG_1934.MOV
+    - 00:03 - 00:06
+        - standing start
+    - 00:29 - 00:32
+        - close up acceleration
+- IMG_1935.MOV
+    - 00:02 - 00:04
+        - back flip
+- IMG_1936.MOV
+    - 00:05 - 00:12
+    - 00:15 - 00:22
+    - 00:24 - 00:35
+- IMG_1937.MOV
+    - 00:12 - 00:23
+    - 00:29 - 00:51
+    - 00:55 - 01:12
+    - 01:15 - 01:40
+    - 01:48 - 02:00
+        - Turned down TSM to zero
+    - 02:10 - 02:15
+    - 02:28 - 03:30
+- IMG_1938.MOV
+    - DELETED
+- IMG_1939.MOV
+    - 00:18 - 00:21
+    - 00:31 - 00:34
+    - 01:05 - 01:12
+    - 01:25 - 01:29
+    - 01:31 - 01:34
+- IMG_1940.MOV
+
+
+.\ffmpeg.exe -i IMG_1937.MOV -acodec copy -f segment -vcodec copy -reset_timestamps 1 -map 0 OUTPUT%d.MOV
+
+.\ffmpeg.exe -ss 00:00:00 -i IMG_1933.MOV -to 00:00:14 -copyts -c copy IMG_1933-0.MOV
+.\ffmpeg.exe -ss 00:00:24 -i IMG_1933.MOV -to 00:00:31 -copyts -c copy IMG_1933-1.MOV
+.\ffmpeg.exe -ss 00:00:03 -i IMG_1934.MOV -to 00:00:06 -copyts -c copy IMG_1934-0.MOV
+.\ffmpeg.exe -ss 00:00:29 -i IMG_1934.MOV -to 00:00:32 -copyts -c copy IMG_1934-1.MOV
+.\ffmpeg.exe -ss 00:00:02 -i IMG_1935.MOV -to 00:00:04 -copyts -c copy IMG_1935-0.MOV
+.\ffmpeg.exe -ss 00:00:05 -i IMG_1936.MOV -to 00:00:12 -copyts -c copy IMG_1936-0.MOV
+.\ffmpeg.exe -ss 00:00:15 -i IMG_1936.MOV -to 00:00:22 -copyts -c copy IMG_1936-1.MOV
+.\ffmpeg.exe -ss 00:00:24 -i IMG_1936.MOV -to 00:00:35 -copyts -c copy IMG_1936-2.MOV
+.\ffmpeg.exe -ss 00:00:12 -i IMG_1937.MOV -to 00:00:23 -copyts -c copy IMG_1937-0.MOV
+.\ffmpeg.exe -ss 00:00:29 -i IMG_1937.MOV -to 00:00:51 -copyts -c copy IMG_1937-1.MOV
+.\ffmpeg.exe -ss 00:00:55 -i IMG_1937.MOV -to 00:01:12 -copyts -c copy IMG_1937-2.MOV
+.\ffmpeg.exe -ss 00:01:15 -i IMG_1937.MOV -to 00:01:40 -copyts -c copy IMG_1937-3.MOV
+.\ffmpeg.exe -ss 00:01:48 -i IMG_1937.MOV -to 00:02:00 -copyts -c copy IMG_1937-4.MOV
+.\ffmpeg.exe -ss 00:02:10 -i IMG_1937.MOV -to 00:02:15 -copyts -c copy IMG_1937-5.MOV
+.\ffmpeg.exe -ss 00:02:28 -i IMG_1937.MOV -to 00:03:30 -copyts -c copy IMG_1937-6.MOV
+.\ffmpeg.exe -ss 00:00:18 -i IMG_1939.MOV -to 00:00:21 -copyts -c copy IMG_1939-0.MOV
+.\ffmpeg.exe -ss 00:00:31 -i IMG_1939.MOV -to 00:00:34 -copyts -c copy IMG_1939-1.MOV
+.\ffmpeg.exe -ss 00:01:05 -i IMG_1939.MOV -to 00:01:12 -copyts -c copy IMG_1939-2.MOV
+.\ffmpeg.exe -ss 00:01:25 -i IMG_1939.MOV -to 00:01:29 -copyts -c copy IMG_1939-3.MOV
+.\ffmpeg.exe -ss 00:01:31 -i IMG_1939.MOV -to 00:01:34 -copyts -c copy IMG_1939-4.MOV
+
+.\ffmpeg.exe -f concat -safe 0 -i mylist.txt -copyts -c copy "Traxxas Hoss 4x4 VXL Gunning it in Rain in a Soccer Field.mov"
